@@ -335,6 +335,11 @@ public class CACodeBeanUtil implements CACodeMethod, CACodeField {
         }
     }
 
+    @Override
+    public Field[] getFields() throws IllegalAccessException, QualifierException {
+        return this.getaClass().getFields();
+    }
+
     /**
      * <p>查询字段</p>
      * p>Query field</p>

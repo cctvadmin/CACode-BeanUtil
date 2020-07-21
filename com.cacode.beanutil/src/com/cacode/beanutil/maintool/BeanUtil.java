@@ -132,6 +132,19 @@ public class BeanUtil extends CACodeBeanUtil {
         return super.selectField(fieldName);
     }
 
+    @Override
+    public Field[] getFields() {
+        Field[] fields = null;
+        try {
+            fields = super.getFields();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (QualifierException e) {
+            e.printStackTrace();
+        }
+        return fields;
+    }
+
     /**
      * <p>你可以使用此方法生成一个数据库的工具类集合</p>
      * <p>You can use this method to generate a collection of tool classes for a database</p>
@@ -252,7 +265,7 @@ public class BeanUtil extends CACodeBeanUtil {
      * @throws Exception
      */
     public Map<Integer, ?> getTool(List<List<Object>> dataSource, String... columnNames) throws Exception {
-        Map<Integer, Object> tool = new HashMap<>();
+        Map<Integer, Object> tool = new HashMap<>(5);
         List<Method> methods = new Vector<>(Arrays.asList(this.getaClass().getMethods()));
         if (dataSource.size() == 0 || dataSource.get(0).size() == 0) {
             return tool;

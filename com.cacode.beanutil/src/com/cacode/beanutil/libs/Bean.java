@@ -75,6 +75,8 @@ public interface Bean {
 
     public Object getField(Field field) throws IllegalAccessException, QualifierException;
 
+    public Field[] getFields() throws IllegalAccessException, QualifierException;
+
     public Method selectMethod(String methodName, Class<?>... classType) throws NoSuchMethodException;
 
     public Field selectField(String fieldName) throws NoSuchFieldException;
